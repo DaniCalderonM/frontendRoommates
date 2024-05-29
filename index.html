@@ -112,12 +112,12 @@ Articulos de limpieza</textarea>
     let gastos = [];
     let gastoEditing = null;
     const getRoommates = async () => {
-      const res = await fetch("http://localhost:3000/roommates");
+      const res = await fetch("https://desafio-roommates-let2.onrender.com/roommates");
       const data = await res.json();
       roommates = data.roommates;
     };
     const getGastos = async () => {
-      const res = await fetch("http://localhost:3000/gastos");
+      const res = await fetch("https://desafio-roommates-let2.onrender.com/gastos");
       const data = await res.json();
       gastos = data.gastos;
     };
@@ -164,7 +164,7 @@ Articulos de limpieza</textarea>
     };
 
     const nuevoRoommate = () => {
-      fetch("http://localhost:3000/roommate", { method: "POST" })
+      fetch("https://desafio-roommates-let2.onrender.com/roommate", { method: "POST" })
         .then((res) => {
           if (res.status == 201) {
             alert("Roommate agregado correctamente");
@@ -188,7 +188,7 @@ Articulos de limpieza</textarea>
         return;
       }
 
-      await fetch("http://localhost:3000/gasto", {
+      await fetch("https://desafio-roommates-let2.onrender.com/gasto", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -204,7 +204,7 @@ Articulos de limpieza</textarea>
     };
 
     const deleteGasto = async (id) => {
-      const response = await fetch("http://localhost:3000/gasto?id=" + id, {
+      const response = await fetch("https://desafio-roommates-let2.onrender.com/gasto?id=" + id, {
         method: "DELETE",
       });
       const data = await response.json();
@@ -221,7 +221,7 @@ Articulos de limpieza</textarea>
         alert("Por favor, ingrese una descripción y un monto.");
         return;
       }
-      await fetch("http://localhost:3000/gasto?id=" + gastoEditing, {
+      await fetch("https://desafio-roommates-let2.onrender.com/gasto?id=" + gastoEditing, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
